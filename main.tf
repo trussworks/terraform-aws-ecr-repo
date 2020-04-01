@@ -8,7 +8,7 @@ locals {
 }
 
 resource "aws_ecr_repository" "main" {
-  name = var.name
+  name = var.container_name
   tags = merge(local.tags, var.tags)
   image_scanning_configuration {
     scan_on_push = var.scan_on_push
@@ -20,45 +20,10 @@ resource "aws_ecr_lifecycle_policy" "main" {
   policy     = local.policy
 }
 
-data "aws_iam_policy_document" "ecr" {
-  statement {
-    principals {
-      type = "AWS"
-
-      identifiers = [
-        "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root",
-        "arn:aws:iam::${local.easi_dev_account}:root",
-        "arn:aws:iam::${local.easi_impl_account}:root",
-        "arn:aws:iam::${local.easi_prod_account}:root",
-      ]
-    }
-
-    condition {
-      test     = "StringLike"
-      variable = "aws:PrincipalOrgID"
-      # This is our organization-wide identifier which can be found after
-      # log-in to AWS: <https://console.aws.amazon.com/organizations/home>
-      values = [var.org_id]
-    }
-
-    actions = [
-      "ecr:BatchCheckLayerAvailability",
-      "ecr:GetDownloadUrlForLayer",
-      "ecr:GetRepositoryPolicy",
-      "ecr:DescribeRepositories",
-      "ecr:ListImages",
-      "ecr:DescribeImages",
-      "ecr:BatchGetImage",
-      "ecr:InitiateLayerUpload",
-      "ecr:UploadLayerPart",
-      "ecr:CompleteLayerUpload",
-      "ecr:PutImage",
-    ]
-  }
-}
-
-
+# Only create the resource if policy is specified. By Default AWS does not
+# attach a ECR policy to a repository.
 resource "aws_ecr_repository_policy" "main" {
   repository = aws_ecr_repository.main.name
-  policy     = length(var.ecr_policy) > 0 ? var.ecr_policy : aws_iam_policy_document.ecr
+  policy     = var.ecr_policy
+  count      = length(var.ecr_policy) > 0 ? 1 : 0
 }

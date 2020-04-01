@@ -1,6 +1,6 @@
-variable "name" {
+variable "container_name" {
   type        = string
-  description = "ECR repository name."
+  description = "Container name."
 }
 
 variable "lifecycle_policy" {
@@ -25,10 +25,4 @@ variable "scan_on_push" {
   type        = bool
   description = "Scan image on push to repo."
   default     = true
-}
-
-variable "org_id" {
-  type        = string
-  description = "Organization ID for default policy."
-  default     = ""
 }

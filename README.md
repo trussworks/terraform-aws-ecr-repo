@@ -46,10 +46,9 @@ module "example" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
+| container\_name | Container name. | `string` | n/a | yes |
 | ecr\_policy | ECR Permission Policy for external access. | `string` | `""` | no |
 | lifecycle\_policy | ECR repository lifecycle policy document. Used to override the default policy. | `string` | `""` | no |
-| name | ECR repository name. | `string` | n/a | yes |
-| org\_id | Organization ID for default policy. | `string` | `""` | no |
 | scan\_on\_push | Scan image on push to repo. | `bool` | `true` | no |
 | tags | Additional tags to apply. | `map` | `{}` | no |
 
@@ -59,6 +58,7 @@ module "example" {
 |------|-------------|
 | arn | Full ARN of the repository. |
 | name | The name of the repository. |
+| repo\_url | The URL for the image created. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
