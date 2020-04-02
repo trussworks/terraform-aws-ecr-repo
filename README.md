@@ -1,27 +1,16 @@
-# Truss Terraform Module template
+# AWS ECR Repository
 
-This repository is meant to be a template repo we can just spin up new module repos from with our general format.
+Creates a basic ECR repository.
 
-## Creating a new Terraform Module
+It's highly suggested to provide your own `lifecycle_policy` and `ecr_policy`.
 
-1. Clone this repo, renaming appropriately.
-1. Write your terraform code in the root dir.
-1. Create an example of the module in use in the `examples` dir.
-1. Ensure you've completed the [Developer Setup](#developer-setup).
-1. Write terratests in the `test` dir.
-1. [With slight modification from the Terratest docs](https://github.com/gruntwork-io/terratest#setting-up-your-project): In the root dir, run `go mod init MODULE_NAME` to get a new go.mod file. Then run `go mod tidy` to download terratest.
-1. Run your tests to ensure they work as expected using instructions below.
+By default, this module will create no policy to attatch to the ECR repo created.
 
-## Actual readme below  - Delete above here
-
-Please put a description of what this module does here
+Please see `lifecycle-policy.json` for the basic policy provided for maintaining the images kept in the repository. [AWS Documentation on Lifecycle Policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html)
 
 ## Terraform Versions
 
-_This is how we're managing the different versions._
-Terraform 0.12. Pin module version to ~> 2.0. Submit pull-requests to master branch.
-
-Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform011 branch.
+This module only supports Terraform 0.12. Submit pull-requests to master branch.
 
 ## Usage
 
@@ -29,9 +18,9 @@ Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform0
 
 ```hcl
 module "example" {
-  source = "terraform/registry/path"
+  source = "trussworks/ecr-repo/aws"
 
-  <variables>
+  container_name = "example"
 }
 ```
 

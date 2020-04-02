@@ -35,4 +35,5 @@ func TestTerraformAwsEcrRepo(t *testing.T) {
 
 	defer terraform.Destroy(t, terraformOptions)
 	terraform.InitAndApply(t, terraformOptions)
+
 }
