@@ -8,6 +8,8 @@ By default, this module will create no policy to attatch to the ECR repo created
 
 Please see `lifecycle-policy.json` for the basic policy provided for maintaining the images kept in the repository. [AWS Documentation on Lifecycle Policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html)
 
+The default lifecycle policy included in this module will keep the last 500 images tagged or untagged.
+
 ## Terraform Versions
 
 This module only supports Terraform 0.12. Submit pull-requests to master branch.
