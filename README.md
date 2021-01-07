@@ -33,14 +33,14 @@ module "example" {
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 0.13.0 |
-| aws | ~> 3.0 |
+| terraform | >= 0.13.0 |
+| aws | >= 3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.0 |
+| aws | >= 3.0 |
 
 ## Inputs
 
@@ -50,7 +50,7 @@ module "example" {
 | ecr\_policy | ECR Permission Policy for external access. | `string` | `""` | no |
 | lifecycle\_policy | ECR repository lifecycle policy document. Used to override the default policy. | `string` | `""` | no |
 | scan\_on\_push | Scan image on push to repo. | `bool` | `true` | no |
-| tags | Additional tags to apply. | `map` | `{}` | no |
+| tags | Additional tags to apply. | `map(any)` | `{}` | no |
 
 ## Outputs
 

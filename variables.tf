@@ -16,7 +16,7 @@ variable "ecr_policy" {
 }
 
 variable "tags" {
-  type        = map
+  type        = map(any)
   description = "Additional tags to apply."
   default     = {}
 }
