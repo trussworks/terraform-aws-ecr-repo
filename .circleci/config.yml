@@ -33,4 +33,4 @@ workflows:
             - setup
   version: 2.1
 orbs:
-  buildevents: honeycombio/buildevents@0.2.7
+  buildevents: honeycombio/buildevents@0.9.0
