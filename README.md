@@ -33,14 +33,14 @@ module "example" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.0 |
+| terraform | >= 0.13.0 |
+| aws | >= 3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0 |
+| aws | >= 3.0 |
 
 ## Modules
 
@@ -58,19 +58,19 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_container_name"></a> [container\_name](#input\_container\_name) | Container name. | `string` | n/a | yes |
-| <a name="input_ecr_policy"></a> [ecr\_policy](#input\_ecr\_policy) | ECR Permission Policy for external access. | `string` | `""` | no |
-| <a name="input_lifecycle_policy"></a> [lifecycle\_policy](#input\_lifecycle\_policy) | ECR repository lifecycle policy document. Used to override the default policy. | `string` | `""` | no |
-| <a name="input_scan_on_push"></a> [scan\_on\_push](#input\_scan\_on\_push) | Scan image on push to repo. | `bool` | `true` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | Additional tags to apply. | `map(any)` | `{}` | no |
+| container\_name | Container name. | `string` | n/a | yes |
+| ecr\_policy | ECR Permission Policy for external access. | `string` | `""` | no |
+| lifecycle\_policy | ECR repository lifecycle policy document. Used to override the default policy. | `string` | `""` | no |
+| scan\_on\_push | Scan image on push to repo. | `bool` | `true` | no |
+| tags | Additional tags to apply. | `map(any)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_arn"></a> [arn](#output\_arn) | Full ARN of the repository. |
-| <a name="output_name"></a> [name](#output\_name) | The name of the repository. |
-| <a name="output_repo_url"></a> [repo\_url](#output\_repo\_url) | The URL for the image created. |
+| arn | Full ARN of the repository. |
+| name | The name of the repository. |
+| repo\_url | The URL for the image created. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Developer Setup
