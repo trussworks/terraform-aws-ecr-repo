@@ -14,7 +14,7 @@ The default lifecycle policy included in this module will keep the last 500 imag
 
 This module only supports Terraform 0.13. Pin module version to `~> 2.X`. Submit pull-requests to master branch.
 
-This module only supports Terraform 0.12.  Pin module version to `~> 1.X`. Submit pull-requests to terraform012 branch.
+This module only supports Terraform 0.12. Pin module version to `~> 1.X`. Submit pull-requests to terraform012 branch.
 
 ## Usage
 
@@ -80,20 +80,4 @@ Install dependencies (macOS)
 ```shell
 brew install pre-commit go terraform terraform-docs
 pre-commit install --install-hooks
-```
-
-### Testing
-
-[Terratest](https://github.com/gruntwork-io/terratest) is being used for
-automated testing with this module. Tests in the `test` folder can be run
-locally by running the following command:
-
-```text
-make test
-```
-
-Or with aws-vault:
-
-```text
-AWS_VAULT_KEYCHAIN_NAME=<NAME> aws-vault exec <PROFILE> -- make test
 ```
