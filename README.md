@@ -1,6 +1,4 @@
-# DEPRECIATION NOTICE
-
-This module has been deprecated and is no longer maintained. Should you need to continue to use it, please fork the repository. Thank you.
+# Terraform AWS ECR Repo
 
 Creates a basic ECR repository.
 
