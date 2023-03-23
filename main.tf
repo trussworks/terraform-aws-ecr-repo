@@ -8,10 +8,20 @@ locals {
 }
 
 resource "aws_ecr_repository" "main" {
-  name = var.container_name
-  tags = merge(local.tags, var.tags)
+  name                 = var.container_name
+  image_tag_mutability = var.image_tag_mutability
+  tags                 = merge(local.tags, var.tags)
   image_scanning_configuration {
     scan_on_push = var.scan_on_push
+  }
+
+  dynamic "encryption_configuration" {
+    for_each = var.encryption_configuration == null ? [] : [var.encryption_configuration]
+    content {
+      encryption_type = encryption_configuration.value.encryption_type
+      kms_key         = encryption_configuration.value.kms_key
+
+    }
   }
 }
 
