@@ -28,13 +28,13 @@ module "example" {
 | Name | Version |
 |------|---------|
 | terraform | ~> 1.4.0 |
-| aws | ~> 4.60.0 |
+| aws | ~> 4.61.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | 4.60.0 |
+| aws | 4.61.0 |
 
 ## Modules
 
